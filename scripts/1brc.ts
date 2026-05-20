@@ -16,7 +16,7 @@ async function* readLines(file_path: string) {
 }
 
 const memBefore = process.memoryUsage().heapUsed;
-for await (const line of readLines("./1brc/measurements.txt")) {
+for await (const line of readLines("./data/measurements.txt")) {
 	const sep = line.indexOf(";");
 	const city = line.slice(0, sep);
 	const temp = parseFloat(line.slice(sep + 1));
@@ -31,9 +31,3 @@ for await (const line of readLines("./1brc/measurements.txt")) {
 	});
 	await setTimeout(100);
 }
-
-const memAfter = process.memoryUsage().heapUsed;
-
-console.log(
-	`Memória usada: ${((memAfter - memBefore) / 1024 / 1024).toFixed(2)}MB`,
-);

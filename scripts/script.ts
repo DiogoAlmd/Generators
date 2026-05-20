@@ -4,10 +4,10 @@ function main() {
 
 	const size = 100_000_000;
 
-	// for (const c of semGenerator(size)) {
-	// }
-	for (const c of comGenerator(size)) {
+	for (const c of semGenerator(size)) {
 	}
+	// for (const c of comGenerator(size)) {
+	// }
 
 	const memAfter = process.memoryUsage().heapUsed;
 	const timeEnd = performance.now();
