@@ -22,7 +22,13 @@ for await (const line of readLines("./1brc/measurements.txt")) {
 	const temp = parseFloat(line.slice(sep + 1));
 
 	const json = JSON.stringify({ city, temp });
-	console.log(json);
+
+	const memAfter = process.memoryUsage().heapUsed;
+
+	console.log({
+		json,
+		"Memória usada": `${((memAfter - memBefore) / 1024 / 1024).toFixed(2)}MB`,
+	});
 	await setTimeout(100);
 }
 
